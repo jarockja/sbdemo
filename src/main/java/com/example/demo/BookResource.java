@@ -9,17 +9,17 @@ import java.util.List;
 public class BookResource {
 
   @Inject
-  private BookRepository bookRepo;
+  private BookService bookService;
 
   @GET
   @Produces(MediaType.APPLICATION_JSON)
   public List<Book> getBooks() {
-    return bookRepo.findAll();
+    return bookService.getBooks();
   }
 
   @POST
   @Consumes(MediaType.APPLICATION_JSON)
   public void insertBook(Book book) {
-    bookRepo.save(book);
+    bookService.insertBook(book);
   }
 }
